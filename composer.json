@@ -1,0 +1,36 @@
+{
+    "name": "chowpad/meeting-room-booking",
+    "description": "ระบบจองห้องประชุมแบบเรียลไทม์ แจ้งซ่อมบำรุง และลงเวลาปฏิบัติงาน",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.1",
+        "ext-pdo": "*",
+        "ext-pdo_mysql": "*",
+        "ext-json": "*",
+        "ext-fileinfo": "*",
+        "ext-gd": "*",
+        "ext-mbstring": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "scripts": {
+        "db:setup": "php database/migrate.php",
+        "db:fresh": "php database/migrate.php --fresh",
+        "serve": "php -S localhost:8000 -t public",
+        "lint": "phpcs",
+        "lint:fix": "phpcbf"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.10"
+    }
+}

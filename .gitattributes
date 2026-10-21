@@ -1,0 +1,5 @@
+# PSR-12 กำหนดให้ใช้ LF ทุกเครื่อง แม้ Windows จะตั้ง core.autocrlf=true
+* text=auto eol=lf
+*.jpg binary
+*.png binary
+*.webp binary

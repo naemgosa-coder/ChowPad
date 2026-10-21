@@ -1,0 +1,53 @@
+/* Utility เท่าที่หน้าเดิมใช้จริง (แทน Bootstrap) ระยะห่างอิง --space-* */
+.d-flex { display: flex !important; }
+.d-grid { display: grid !important; }
+.d-none { display: none !important; }
+.d-inline-flex { display: inline-flex !important; }
+.flex-column { flex-direction: column !important; }
+.flex-wrap { flex-wrap: wrap !important; }
+.flex-grow-1 { flex-grow: 1 !important; }
+.align-items-center { align-items: center !important; }
+.align-items-start { align-items: flex-start !important; }
+.align-items-end { align-items: flex-end !important; }
+.justify-content-between { justify-content: space-between !important; }
+.justify-content-center { justify-content: center !important; }
+.justify-content-end { justify-content: flex-end !important; }
+.gap-1 { gap: var(--space-1) !important; }
+.gap-2 { gap: var(--space-2) !important; }
+.gap-3 { gap: var(--space-3) !important; }
+.gap-4 { gap: var(--space-4) !important; }
+.gap-6 { gap: var(--space-6) !important; }
+
+.m-0 { margin: 0 !important; }
+.mb-0 { margin-bottom: 0 !important; }
+.mb-1 { margin-bottom: var(--space-1) !important; }
+.mb-2 { margin-bottom: var(--space-2) !important; }
+.mb-3 { margin-bottom: var(--space-4) !important; }
+.mb-4 { margin-bottom: var(--space-6) !important; }
+.mt-1 { margin-top: var(--space-1) !important; }
+.mt-2 { margin-top: var(--space-2) !important; }
+.mt-3 { margin-top: var(--space-4) !important; }
+.mt-4 { margin-top: var(--space-6) !important; }
+.p-0 { padding: 0 !important; }
+
+.w-100 { width: 100% !important; }
+.h-100 { height: 100% !important; }
+
+.text-center { text-align: center !important; }
+.text-end { text-align: right !important; }
+.text-muted { color: var(--text-muted) !important; }
+.text-primary { color: var(--color-primary-600) !important; }
+.text-success { color: var(--color-success-700) !important; }
+.text-warning { color: var(--color-warning-700) !important; }
+.text-danger { color: var(--color-danger-700) !important; }
+.text-sm { font-size: var(--text-body-sm) !important; }
+.text-caption { font-size: var(--text-caption) !important; }
+.fw-semibold { font-weight: 600 !important; }
+.fw-bold { font-weight: 700 !important; }
+.nowrap { white-space: nowrap !important; }
+
+.list-unstyled { list-style: none; padding: 0; }
+
+@media (min-width: 1024px) {
+  .d-lg-block { display: block !important; }
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<ruleset name="ChowPad">
+    <description>มาตรฐานโค้ด PSR-12 (ไฟล์ใน views/ เป็นเทมเพลต HTML ผสม PHP จึงไม่ตรวจ)</description>
+    <file>src</file>
+    <file>config</file>
+    <file>routes</file>
+    <file>database</file>
+    <file>tools</file>
+    <file>public/index.php</file>
+    <arg name="extensions" value="php"/>
+    <arg name="colors"/>
+    <arg value="sp"/>
+    <rule ref="PSR12">
+        <!-- ข้อความภาษาไทยและ SQL ยาวกว่า 120 ตัวอักษรได้ (ค่าเริ่มต้นเป็นแค่คำเตือนอยู่แล้ว) -->
+        <exclude name="Generic.Files.LineLength"/>
+    </rule>
+    <!-- ไฟล์ bootstrap/สคริปต์ CLI ต้องมีทั้งการประกาศและคำสั่งในไฟล์เดียว -->
+    <rule ref="PSR1.Files.SideEffects">
+        <exclude-pattern>config/bootstrap.php</exclude-pattern>
+        <exclude-pattern>database/migrate.php</exclude-pattern>
+        <exclude-pattern>tools/*</exclude-pattern>
+        <exclude-pattern>public/index.php</exclude-pattern>
+        <exclude-pattern>src/helpers.php</exclude-pattern>
+    </rule>
+</ruleset>

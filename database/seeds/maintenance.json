@@ -1,0 +1,42 @@
+[
+  {
+    "id": "MNT-2026-0001",
+    "date": "2026-07-15",
+    "category": "Air Conditioner",
+    "building": "ศาลากลางจังหวัดหลังใหม่",
+    "floor": "3",
+    "room": "ห้องประชุม ชั้น 3 (ห้องที่ 1)",
+    "description": "เครื่องปรับอากาศช่องที่ 2 ฝั่งทิศตะวันออกมีเสียงดังผิดปกติและมีน้ำหยดเล็กน้อย",
+    "priority": "High",
+    "technician": "สมยศ รักษ์ธรรม",
+    "status": "In Progress",
+    "beforeImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=400",
+    "afterImage": null,
+    "repairNotes": "ช่างเข้าดำเนินการล้างฟิลเตอร์และตรวจสอบระบบระบายน้ำทิ้ง คาดว่าท่อน้ำทิ้งอุดตัน",
+    "materialUsed": "น้ำยาล้างแอร์, เทปกาวพันท่อ",
+    "laborCost": 300,
+    "materialCost": 150,
+    "startTime": "09:30",
+    "finishTime": null
+  },
+  {
+    "id": "MNT-2026-0002",
+    "date": "2026-07-16",
+    "category": "Projector",
+    "building": "ศาลากลางจังหวัดหลังเก่า",
+    "floor": "2",
+    "room": "ห้องประชุม ชั้น 2 (ห้องที่ 4 - ศาลากลางหลังเก่า)",
+    "description": "หลอดภาพโปรเจคเตอร์หมดอายุ สัญญาณภาพหม่นและสีเพี้ยนจัด ทำให้ใช้งานการนำเสนอไม่ได้",
+    "priority": "Critical",
+    "technician": "กิตติ พึ่งตน",
+    "status": "Waiting",
+    "beforeImage": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=400",
+    "afterImage": null,
+    "repairNotes": "รอดำเนินการสั่งซื้อหลอดภาพเครื่องฉายยี่ห้อ Epson รุ่น EB-X06",
+    "materialUsed": "",
+    "laborCost": 0,
+    "materialCost": 0,
+    "startTime": null,
+    "finishTime": null
+  }
+]

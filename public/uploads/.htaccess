@@ -1,0 +1,7 @@
+# ไฟล์ในโฟลเดอร์นี้มาจากผู้ใช้ ห้ามรันเป็นสคริปต์ (สำหรับ Apache)
+php_flag engine off
+RemoveHandler .php .phtml .php3 .php4 .php5 .phar
+Options -Indexes -ExecCGI
+<FilesMatch "\.(?!jpe?g$)[^.]+$">
+    Require all denied
+</FilesMatch>
