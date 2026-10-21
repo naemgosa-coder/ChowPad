@@ -180,13 +180,37 @@
     syncExpanded();
   }
 
-  /* ---------- หน้า login: ปุ่มกรอกบัญชีทดสอบ ---------- */
-  function initDemoLogin() {
+  /* ---------- ปุ่มแสดง/ซ่อนรหัสผ่าน ---------- */
+  document.querySelectorAll('[data-toggle-password]').forEach((button) => {
+    const input = document.getElementById(button.dataset.togglePassword);
+    button.addEventListener('click', () => {
+      const show = input.type === 'password';
+      input.type = show ? 'text' : 'password';
+      button.setAttribute('aria-pressed', String(show));
+      button.setAttribute('aria-label', show ? 'ซ่อนรหัสผ่าน' : 'แสดงรหัสผ่าน');
+      button.innerHTML = icon(show ? 'eye-off' : 'eye');
+      input.focus();
+    });
+    // ซ่อนรหัสผ่านกลับก่อนส่งฟอร์ม เพื่อไม่ให้ค้างแสดงบนจอระหว่างรอหน้าใหม่
+    input.form?.addEventListener('submit', () => { input.type = 'password'; });
+  });
+
+  /* ---------- หน้า login: คำเตือน Caps Lock และปุ่มกรอกบัญชีทดสอบ ---------- */
+  function initLogin() {
+    const password = document.getElementById('login-password');
+    const caps = document.getElementById('caps-warning');
+    if (password && caps) {
+      const check = (e) => { if (e.getModifierState) caps.hidden = !e.getModifierState('CapsLock'); };
+      password.addEventListener('keydown', check);
+      password.addEventListener('keyup', check);
+      password.addEventListener('blur', () => { caps.hidden = true; });
+    }
+
     document.querySelectorAll('[data-demo-login]').forEach((button) => {
       button.addEventListener('click', () => {
         document.getElementById('login-username').value = button.dataset.demoLogin;
-        document.getElementById('login-password').value = button.dataset.demoLogin;
-        document.querySelector('form[action="/login"] button[type="submit"]').focus();
+        password.value = button.dataset.demoLogin;
+        document.querySelector('.login-form button[type="submit"]').focus();
       });
     });
     document.getElementById('login-error')?.focus();
@@ -248,7 +272,7 @@
   }
 
   initSidebar();
-  initDemoLogin();
+  initLogin();
 
   window.App = { api, toast, confirm: confirmDialog, icon, escapeHtml, fmt, toDate, live, readJson };
 })();

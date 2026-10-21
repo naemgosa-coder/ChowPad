@@ -8,6 +8,7 @@ use App\Controllers\AuditLogController;
 use App\Controllers\AuthController;
 use App\Controllers\BookingController;
 use App\Controllers\CalendarController;
+use App\Controllers\ChatController;
 use App\Controllers\DashboardController;
 use App\Controllers\DepartmentController;
 use App\Controllers\HealthController;
@@ -122,3 +123,5 @@ $router->get('/settings/system', [SettingsController::class, 'system'], $admins)
 $router->get('/api/rooms/status', [ApiController::class, 'roomStatus']);
 $router->get('/api/rooms/availability', [ApiController::class, 'availability']);
 $router->get('/api/calendar/events', [ApiController::class, 'calendarEvents']);
+$router->post('/api/chat', [ChatController::class, 'ask']);
+$router->post('/api/chat/reset', [ChatController::class, 'reset']);

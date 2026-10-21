@@ -27,7 +27,9 @@ use App\Services\View;
     </main>
   </div>
   <?= View::partial('partials/ui') ?>
+  <?= View::partial('partials/chat') ?>
   <script src="<?= e(asset('js/app.js')) ?>"></script>
+  <script src="<?= e(asset('js/chat.js')) ?>"></script>
   <?php foreach ($scripts ?? [] as $script): ?>
     <script src="<?= e(str_starts_with($script, 'https://') ? $script : asset($script)) ?>"></script>
   <?php endforeach; ?>

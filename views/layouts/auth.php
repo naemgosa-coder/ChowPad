@@ -9,8 +9,9 @@ use App\Services\View;
 <head>
   <?= View::partial('partials/head', ['title' => $title ?? '']) ?>
 </head>
-<body class="auth-body">
-  <main id="main" class="w-100"><?= $content ?></main>
+<body class="auth-page">
+  <a class="skip-link" href="#main">ข้ามไปยังฟอร์มเข้าสู่ระบบ</a>
+  <?= $content ?>
   <?= View::partial('partials/ui') ?>
   <script src="<?= e(asset('js/app.js')) ?>"></script>
 </body>

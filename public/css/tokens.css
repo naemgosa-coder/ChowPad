@@ -26,6 +26,10 @@
   --border-input: var(--color-gray-300);
   --focus-ring: 0 0 0 3px #FFFFFF, 0 0 0 5px var(--color-primary-600);
   --overlay: rgba(14, 35, 71, 0.5);
+  /* เส้นบางบนพื้นกรมท่า (primary-200 / accent-500 แบบโปร่ง) ใช้ในแผงแบรนด์หน้าเข้าสู่ระบบ */
+  --on-dark-line: rgba(179, 201, 235, .06);
+  --on-dark-divider: rgba(179, 201, 235, .15);
+  --accent-outline: rgba(201, 162, 39, .5);
 
   /* Typography (rem เพื่อให้ผู้ใช้ขยายตัวอักษรได้ 200%) */
   --font-sans: 'Sarabun', 'Noto Sans Thai', 'Leelawadee UI', 'Tahoma', sans-serif;

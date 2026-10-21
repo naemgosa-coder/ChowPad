@@ -11,12 +11,12 @@ declare(strict_types=1);
 const LUCIDE_VERSION = '0.460.0';
 
 $icons = [
-    'accessibility', 'arrow-right', 'award', 'bell', 'bell-off', 'briefcase', 'building', 'building-2',
+    'accessibility', 'arrow-right', 'award', 'bell', 'bell-off', 'bot', 'briefcase', 'message-circle','building', 'building-2',
     'calculator', 'calendar', 'calendar-check', 'calendar-days', 'calendar-minus', 'calendar-plus',
     'calendar-range', 'camera', 'chart-bar', 'chart-column', 'chart-line', 'chart-pie', 'check',
     'check-check', 'chevron-down', 'chevron-left', 'chevron-right', 'circle-alert', 'circle-check',
     'circle-help', 'circle-plus', 'circle-play', 'circle-x', 'clipboard-list', 'clock', 'cpu', 'database',
-    'door-open', 'download', 'eye', 'file-spreadsheet', 'file-text', 'filter', 'gauge', 'history', 'image',
+    'door-open', 'download', 'eye', 'eye-off','file-spreadsheet', 'file-text', 'filter', 'gauge', 'history', 'image',
     'info', 'key', 'layers', 'layout-dashboard', 'link', 'loader-circle', 'lock', 'log-in', 'log-out',
     'map-pin', 'menu', 'mic', 'monitor', 'monitor-play', 'network', 'octagon-alert', 'pencil', 'play',
     'plus', 'presentation', 'printer', 'projector', 'rotate-cw', 'save', 'search', 'search-code', 'search-x',

@@ -286,31 +286,158 @@ textarea.form-control { padding: var(--space-3); min-height: 96px; resize: verti
 .spinner { width: 20px; height: 20px; border: 2px solid currentColor; border-right-color: transparent; border-radius: var(--radius-full); animation: spin .7s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ---------- Login ---------- */
-.auth-card { width: 100%; max-width: 480px; margin: 0 auto; padding: var(--space-8); }
-.auth-brand { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); margin-bottom: var(--space-6); text-align: center; }
-.auth-brand .brand-mark { width: 56px; height: 56px; background: var(--color-primary-900); }
-.auth-brand p { color: var(--text-muted); }
-.auth-aside { padding: var(--space-8); text-align: center; background: var(--color-primary-900); color: var(--color-primary-100); border-color: var(--color-primary-900); }
-.auth-aside h2 { color: var(--color-white); margin: var(--space-4) 0 var(--space-2); }
-.auth-aside svg { margin: 0 auto; }
-.demo-accounts { margin-top: var(--space-6); padding-top: var(--space-6); border-top: 1px solid var(--border-default); }
-.demo-accounts-title { margin-bottom: var(--space-3); text-align: center; font-size: var(--text-body-sm); color: var(--text-muted); }
-.demo-account {
+/* ---------- ช่องกรอกและปุ่มขนาดใหญ่ (หน้าเข้าสู่ระบบ) ---------- */
+.form-control-lg { min-height: 48px; }
+.btn-lg { min-height: 48px; font-size: var(--text-body); }
+/* ปุ่มในช่องกรอก เช่น แสดง/ซ่อนรหัสผ่าน */
+.input-action > .form-control { padding-right: calc(var(--tap-target) + var(--space-1)); }
+.input-action-btn {
+  position: absolute;
+  top: 50%;
+  right: 2px;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-target);
+  height: var(--tap-target);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--text-muted);
+}
+.input-action-btn:hover { color: var(--color-primary-700); background: var(--color-gray-100); }
+.input-action-btn[aria-pressed="true"] { color: var(--color-primary-600); }
+
+/* ---------- หน้าเข้าสู่ระบบ: แผงแบรนด์ ---------- */
+.login-emblem { display: flex; align-items: center; gap: var(--space-3); }
+.login-emblem-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border: 1px solid var(--color-accent-500);
+  border-radius: var(--radius-md);
+  background: var(--color-primary-800);
+  color: var(--color-accent-500);
+}
+.login-emblem-text { display: flex; flex-direction: column; line-height: 1.35; }
+.login-emblem-org { color: var(--color-white); font-weight: 700; font-size: var(--text-h3); }
+.login-emblem-sub { font-size: var(--text-caption); }
+
+.login-hero { display: flex; flex-direction: column; gap: var(--space-3); }
+.login-eyebrow {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--accent-outline);
+  border-radius: var(--radius-full);
+  color: var(--color-accent-100);
+  font-size: var(--text-caption);
+  font-weight: 600;
+}
+.login-headline { color: var(--color-white); font-size: var(--text-h1); line-height: 1.35; font-weight: 700; }
+.login-lead { max-width: 46ch; font-size: var(--text-body); line-height: 1.65; }
+@media (min-width: 1024px) {
+  .login-headline { font-size: var(--text-display); }
+}
+
+.login-features { display: flex; flex-direction: column; gap: var(--space-5); }
+.login-features li { display: flex; align-items: flex-start; gap: var(--space-4); font-size: var(--text-body-sm); line-height: 1.6; }
+.login-features strong { display: block; color: var(--color-white); font-size: var(--text-body); font-weight: 600; }
+.login-feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-primary-800);
+  color: var(--color-accent-500);
+}
+.login-brand-foot {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--on-dark-divider);
+  font-size: var(--text-caption);
+}
+
+/* ---------- หน้าเข้าสู่ระบบ: แผงฟอร์ม ---------- */
+.login-header h1 { font-size: var(--text-h1); }
+.login-header p { margin-top: var(--space-1); color: var(--text-muted); }
+.login-form { display: flex; flex-direction: column; gap: var(--space-5); }
+.login-form .field + .field { margin-top: 0; }
+.login-form .btn { margin-top: var(--space-2); }
+
+.login-forgot { display: flex; flex-direction: column; align-items: flex-end; margin-top: calc(var(--space-1) * -1); }
+.login-forgot summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  padding: 0 var(--space-1);
+  color: var(--color-primary-600);
+  font-size: var(--text-body-sm);
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+}
+.login-forgot summary::-webkit-details-marker { display: none; }
+.login-forgot summary:hover { color: var(--color-primary-700); text-decoration: underline; }
+.login-forgot-panel {
+  align-self: stretch;
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-info-200);
+  border-radius: var(--radius-md);
+  background: var(--color-info-50);
+  color: var(--color-info-700);
+  font-size: var(--text-body-sm);
+}
+.login-forgot-panel .icon { margin-top: 3px; }
+
+.login-demo { border: 1px dashed var(--border-input); border-radius: var(--radius-md); background: var(--color-gray-50); }
+.login-demo summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  min-height: var(--tap-target);
+  padding: 0 var(--space-4);
+  font-size: var(--text-body-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+.login-demo summary > span:first-child { display: inline-flex; align-items: center; gap: var(--space-2); }
+.login-demo[open] summary { border-bottom: 1px dashed var(--border-input); }
+.login-demo > p { padding: var(--space-3) var(--space-4) 0; }
+.login-demo-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: var(--space-2); padding: var(--space-3) var(--space-4) var(--space-4); }
+.login-demo-account {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
   width: 100%;
   min-height: var(--tap-target);
   padding: var(--space-2) var(--space-3);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-md);
   background: var(--bg-surface);
-  text-align: center;
-  font-size: var(--text-body-sm);
-  line-height: 1.45;
+  text-align: left;
+  font-size: var(--text-caption);
+  color: var(--text-muted);
+  line-height: 1.4;
 }
-.demo-account:hover { border-color: var(--color-primary-600); background: var(--color-primary-50); }
-.demo-account span { display: block; font-size: var(--text-caption); color: var(--text-muted); }
-.auth-help summary { min-height: var(--tap-target); display: inline-flex; align-items: center; color: var(--color-primary-600); cursor: pointer; font-size: var(--text-body-sm); }
-.auth-help p { font-size: var(--text-body-sm); color: var(--text-muted); }
+.login-demo-account .icon { color: var(--color-primary-600); }
+.login-demo-account strong { display: block; color: var(--text-primary); font-size: var(--text-body-sm); }
+.login-demo-account:hover { border-color: var(--color-primary-600); background: var(--color-primary-50); }
+
+.login-footer { color: var(--text-muted); font-size: var(--text-caption); text-align: center; }
 
 /* ---------- Error page ---------- */
 .error-card { max-width: 480px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: var(--space-4); }
@@ -539,6 +666,161 @@ textarea.form-control { padding: var(--space-3); min-height: 96px; resize: verti
 .count-grid li { display: flex; flex-direction: column; padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-gray-50); }
 .room-thumb { width: 100%; max-width: 220px; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius-md); border: 1px solid var(--border-default); }
 .quota-input { max-width: 120px; }
+
+/* ---------- ผู้ช่วยตอบคำถาม (chat) ---------- */
+.chat { position: fixed; right: var(--space-6); bottom: var(--space-6); z-index: 90; }
+.chat-fab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-600);
+  color: var(--color-white);
+  box-shadow: var(--shadow-lg);
+  transition: background-color var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard);
+}
+.chat-fab:hover { background: var(--color-primary-700); transform: translateY(-1px); }
+.chat.is-open .chat-fab { background: var(--color-primary-800); }
+
+.chat-panel {
+  position: absolute;
+  right: 0;
+  bottom: calc(56px + var(--space-3));
+  width: min(400px, calc(100vw - var(--space-8)));
+  height: min(600px, calc(100vh - var(--header-height) - 56px - var(--space-12)));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-lg);
+  animation: chat-enter var(--duration-base) var(--ease-standard);
+}
+@keyframes chat-enter { from { opacity: 0; transform: translateY(8px) scale(.98); } to { opacity: 1; transform: none; } }
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-2) var(--space-3) var(--space-4);
+  border-bottom: 3px solid var(--color-accent-500);
+  background: var(--color-primary-900);
+  color: var(--color-white);
+}
+.chat-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-800);
+  color: var(--color-accent-500);
+}
+.chat-heading { flex: 1; min-width: 0; line-height: 1.35; }
+.chat-heading h2 { color: var(--color-white); font-size: var(--text-body); font-weight: 600; }
+.chat-heading p { color: var(--color-primary-200); font-size: var(--text-caption); }
+.chat-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-target);
+  height: var(--tap-target);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-white);
+}
+.chat-icon-btn:hover { background: var(--color-primary-800); }
+
+.chat-log { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-4); background: var(--color-gray-50); }
+.chat-msg { display: flex; flex-direction: column; gap: var(--space-1); max-width: 88%; }
+.chat-msg.is-new { animation: chat-msg-in var(--duration-base) var(--ease-standard); }
+@keyframes chat-msg-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.chat-msg-user { align-self: flex-end; align-items: flex-end; }
+.chat-msg-bot { align-self: flex-start; }
+.chat-bubble {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-body-sm);
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.chat-msg-user .chat-bubble { border-bottom-right-radius: var(--radius-sm); background: var(--color-primary-600); color: var(--color-white); }
+.chat-msg-bot .chat-bubble { border: 1px solid var(--border-default); border-bottom-left-radius: var(--radius-sm); background: var(--bg-surface); color: var(--text-primary); }
+.chat-msg-bot .chat-bubble a { font-weight: 600; }
+.chat-typing { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--text-muted); }
+.chat-typing .spinner { width: 14px; height: 14px; }
+.chat-links { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.chat-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 36px;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--color-primary-200);
+  border-radius: var(--radius-full);
+  background: var(--color-primary-50);
+  color: var(--color-primary-700);
+  font-size: var(--text-caption);
+  font-weight: 600;
+  text-decoration: none;
+}
+.chat-link:hover { border-color: var(--color-primary-600); color: var(--color-primary-800); }
+.chat-meta { display: inline-flex; align-items: center; gap: var(--space-1); color: var(--text-muted); font-size: var(--text-caption); }
+
+.chat-suggestions { display: flex; flex-wrap: wrap; gap: var(--space-2); padding: var(--space-3) var(--space-4) 0; background: var(--color-gray-50); }
+.chat-chip {
+  min-height: 36px;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-full);
+  background: var(--bg-surface);
+  color: var(--text-body-color);
+  font-size: var(--text-caption);
+}
+.chat-chip:hover { border-color: var(--color-primary-600); background: var(--color-primary-50); color: var(--color-primary-700); }
+
+.chat-form { display: flex; align-items: flex-end; gap: var(--space-2); padding: var(--space-3) var(--space-3) var(--space-1); border-top: 1px solid var(--border-default); }
+.chat-input {
+  flex: 1;
+  min-height: var(--tap-target);
+  max-height: 132px;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-md);
+  resize: none;
+  font-size: var(--text-body-sm);
+  line-height: 1.6;
+}
+.chat-input:focus { border-color: var(--color-primary-600); box-shadow: var(--focus-ring); outline: none; }
+.chat-send {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-target);
+  height: var(--tap-target);
+  flex-shrink: 0;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-primary-600);
+  color: var(--color-white);
+}
+.chat-send:hover { background: var(--color-primary-700); }
+.chat-send:disabled { background: var(--color-gray-100); color: var(--text-muted); cursor: progress; }
+.chat-note { padding: 0 var(--space-4) var(--space-3); color: var(--text-muted); font-size: var(--text-caption); }
+
+/* มือถือ: หน้าต่างแชตเต็มจอ */
+@media (max-width: 639.98px) {
+  .chat { right: var(--space-4); bottom: var(--space-4); }
+  .chat-panel { position: fixed; inset: 0; width: auto; height: auto; border: 0; border-radius: 0; }
+  .chat.is-open .chat-fab { display: none; }
+}
 
 /* ---------- พิมพ์ ---------- */
 @media print {

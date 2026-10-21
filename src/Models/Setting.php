@@ -28,4 +28,12 @@ final class Setting
     {
         return self::get('working_hours', []) + ['start' => '08:30', 'end' => '16:30'];
     }
+
+    /** เวลาทำการแบบข้อความ "08:30–16:30" (MySQL เรียงคีย์ JSON ใหม่ จึงห้ามใช้ implode กับผลของ workingHours) */
+    public static function workingHoursText(): string
+    {
+        $h = self::workingHours();
+
+        return "{$h['start']}–{$h['end']}";
+    }
 }
